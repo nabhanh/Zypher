@@ -14,16 +14,23 @@ class BuildCategories {
       names.add(category['displayName']);
       imageUrls.add(category['categoryImageURL']);
     }
-    print(names);
-    print(imageUrls);
+//    print(names);
+//    print(imageUrls);
     int n = names.length;
     for (var i = 0; i < n; i++) {
       icons.add(
         Container(
-          width: 50,
-          height: 50,
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          width: 100,
+          height: 100,
           child: Tab(
-            icon: Image.network(imageUrls[i]),
+            icon: IconButton(
+              icon: Image.network(imageUrls[i]),
+              iconSize: 100,
+              onPressed: () {
+                print("Button $i pressed");
+              },
+            ),
             text: names[i],
           ),
         ),
