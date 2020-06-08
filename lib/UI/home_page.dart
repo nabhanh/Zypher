@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white70,
       ),
       body: Container(
+        padding: EdgeInsets.only(left: 10),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                 height: 70,
               ),
               Text(
-                'What would you like to read,Ariel?',
+                'What would\nyou like to read,Ariel?',
                 style: TextStyle(
                   fontSize: 30,
                   wordSpacing: 2,
