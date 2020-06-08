@@ -57,6 +57,14 @@ class _HomePageState extends State<HomePage> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(32),
                   ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black, width: 0.3),
+                    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.black, width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                  ),
                 ),
               ),
               SizedBox(
@@ -104,8 +112,8 @@ class ShowCategories extends StatelessWidget {
       tabs.add(
         Container(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          width: 100,
-          height: 100,
+          width: 0.25 * MediaQuery.of(context).size.width,
+          height: 0.20 * MediaQuery.of(context).size.width,
           child: Tab(
             icon: RawMaterialButton(
               child: Container(
