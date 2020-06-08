@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zypher/CategoryBloc.dart';
-import 'package:zypher/category_repo.dart';
+import 'package:zypher/Bloc/CategoryBloc.dart';
+import 'package:zypher/Repository/category_repo.dart';
 import 'UI/home_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

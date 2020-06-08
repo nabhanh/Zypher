@@ -1,7 +1,9 @@
+import 'dart:ui';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:zypher/category.dart';
-import 'package:zypher/category_repo.dart';
+import 'package:zypher/Repository/category.dart';
+import 'package:zypher/Repository/category_repo.dart';
 
 class CategoryEvent extends Equatable {
   @override
@@ -44,15 +46,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   @override
   Stream<CategoryState> mapEventToState(CategoryEvent event) async* {
-    if (event is FetchCategory) {
-      yield CategoryIsLoading();
-
-      try {
-        List<Category> categories = await categoryRepo.getCategories();
-        yield CategoryIsLoaded(categories);
-      } catch (_) {
-        yield CategoryIsNotLoading();
-      }
+    try {
+      List<Category> categories = await categoryRepo.getCategories();
+      yield CategoryIsLoaded(categories);
+    } catch (_) {
+      yield CategoryIsNotLoading();
     }
   }
 }

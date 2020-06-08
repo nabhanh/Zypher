@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'networking.dart';
-import 'package:zypher/category.dart';
+import '../NetworkProvider/networking.dart';
+import 'package:zypher/Repository/category.dart';
 import 'dart:async';
 
 class CategoryRepo {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zypher/CategoryBloc.dart';
-import '../category.dart';
-import '../category_repo.dart';
+import 'package:zypher/Bloc/CategoryBloc.dart';
+import '../Repository/category.dart';
+import '../Repository/category_repo.dart';
 
 //void getData() async {
 //  CategoryRepo buildCategories = CategoryRepo();
@@ -80,8 +80,10 @@ class _HomePageState extends State<HomePage> {
               BlocBuilder<CategoryBloc, CategoryState>(
                 builder: (context, state) {
                   if (state is CategoryIsLoading) {
+                    categoryBloc.add(FetchCategory(true));
                     return CircularProgressIndicator();
                   } else if (state is CategoryIsLoaded) {
+                    categoryBloc.add(FetchCategory(true));
                     return ShowCategories(state.categoryList);
                   }
                   return Center(
