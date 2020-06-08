@@ -7,7 +7,6 @@ import 'package:zypher/Repository/category_repo.dart';
 
 class CategoryEvent extends Equatable {
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
@@ -15,13 +14,11 @@ class FetchCategory extends CategoryEvent {
   final toLoad;
   FetchCategory(this.toLoad);
   @override
-  // TODO: implement props
   List<Object> get props => [toLoad];
 }
 
 class CategoryState extends Equatable {
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
@@ -32,7 +29,6 @@ class CategoryIsLoaded extends CategoryState {
   CategoryIsLoaded(this.categoryList);
   List<Category> get getCategoryList => categoryList;
   @override
-  // TODO: implement props
   List<Object> get props => [categoryList];
 }
 

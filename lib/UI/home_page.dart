@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zypher/Bloc/CategoryBloc.dart';
 import '../Repository/category.dart';
-import '../Repository/category_repo.dart';
-
-//void getData() async {
-//  CategoryRepo buildCategories = CategoryRepo();
-//  tabs = await buildCategories.getCategories();
-//}
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,8 +12,6 @@ class _HomePageState extends State<HomePage> {
   var searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
-//    getData();
     final categoryBloc = BlocProvider.of<CategoryBloc>(context);
     return Scaffold(
       appBar: AppBar(
@@ -81,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 builder: (context, state) {
                   if (state is CategoryIsLoading) {
                     categoryBloc.add(FetchCategory(true));
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   } else if (state is CategoryIsLoaded) {
                     categoryBloc.add(FetchCategory(true));
                     return ShowCategories(state.categoryList);
@@ -114,9 +106,10 @@ class ShowCategories extends StatelessWidget {
           width: 100,
           height: 100,
           child: Tab(
-            icon: IconButton(
-              icon: Image.network(categoryList[i].imageURL),
-              iconSize: 100,
+            icon: RawMaterialButton(
+              child: Container(
+                  height: 100, child: Image.network(categoryList[i].imageURL)),
+              shape: CircleBorder(),
               onPressed: () {
                 print("Button $i pressed");
               },
